@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - name: ubuntu
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ${ssh_public_key}
+# package_update: true
+# package_upgrade: false
+# packages:
+#   - vim
+#   - nginx
+bootcmd:
+  - echo '<p>hostname is:' "$(hostname)" '</p><br><a href="https://storage.yandexcloud.net/zhivarev-12072024/img.png">Link</a>' >  /var/www/html/index.html
